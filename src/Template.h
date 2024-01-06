@@ -16,8 +16,8 @@ void Template_Tower_Init(Template *tpl) {
 
     TM_Tower *towers = tpl->towers;
     TM_Tower t1 = TM_Tower_Create(1, 1, 1, RED, RED, SHAPE_TYPE_CIRCLE, Vector2_New(std_cell * 3, std_cell * 3));
-    TM_Tower t2 = TM_Tower_Create(2, 1, 1, RED, RED, SHAPE_TYPE_CIRCLE, Vector2_New(std_cell * 3, std_cell * 3));
-    TM_Tower t3 = TM_Tower_Create(3, 1, 1, RED, RED, SHAPE_TYPE_CIRCLE, Vector2_New(std_cell * 3, std_cell * 3));
+    TM_Tower t2 = TM_Tower_Create(2, 1, 1, GREEN, GREEN, SHAPE_TYPE_CIRCLE, Vector2_New(std_cell * 3, std_cell * 3));
+    TM_Tower t3 = TM_Tower_Create(3, 1, 1, PINK, PINK, SHAPE_TYPE_CIRCLE, Vector2_New(std_cell * 3, std_cell * 3));
     towers[tpl->toeweLength++] = t1;
     towers[tpl->toeweLength++] = t2;
     towers[tpl->toeweLength++] = t3;

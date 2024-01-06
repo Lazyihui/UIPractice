@@ -21,18 +21,19 @@ int main() {
         ClearBackground(RAYWHITE);
         if (IsKeyPressed(KEY_A)) {
 
-            assert(ctx != NULL);
-            assert(ctx->ctx_UI != NULL);
-            PlogNoArg("start2\r\n");
 
             App_UI_PanelTower_Open(ctx->ctx_UI, Vector2_New(400, 300));
-            PlogNoArg("a\r\n");
-            assert(ctx->ctx_UI->pn_towerMani != NULL);
+            
             int manifest[3] = {1, 2, 3};
+            
             for (int i = 0; i < 3; i++) {
                 int typeID = manifest[i];
                 TM_Tower *towerTM = Template_GetTower(ctx->tpl, typeID);
                 App_UI_PanelTower_Add(ctx->ctx_UI, towerTM->typeID, towerTM->iconColor);
+            }
+            if (IsKeyPressed(KEY_B)) {
+                PlogNoArg("B");
+                App_UI_PanelTower_Close(ctx->ctx_UI);
             }
         }
         App_UI_PanelTower_Draw(ctx->ctx_UI);

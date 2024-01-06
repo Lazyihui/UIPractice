@@ -24,7 +24,9 @@ void App_UI_PanelTower_Open(CtxUI *ctxUI, Vector2 startPos) {
     PN_Manifest_Init(ctxUI->pn_towerMani, startPos);
 }
 
-void App_UI_PanelTower_Close() {
+void App_UI_PanelTower_Close(CtxUI *ctxUI) {
+    
+    PN_Manifest_Close(ctxUI->pn_towerMani);
 }
 
 void App_UI_PanelTower_Toggle() {
@@ -33,7 +35,6 @@ void App_UI_PanelTower_Toggle() {
 void App_UI_PanelTower_Draw(CtxUI *ctxUI) {
     assert(ctxUI != NULL);
     if (ctxUI->pn_towerMani != NULL && ctxUI->pn_towerMani->isOpen) {
-        PlogNoArg("pn\r\n");
         PN_Manifest_Draw(ctxUI->pn_towerMani);
     }
 }

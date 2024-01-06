@@ -44,11 +44,12 @@ void PN_Manifest_Draw(PN_Manifest *panel) {
         return;
     } else {
         Vector2 startPos = panel->startPos;
-        DrawRectangleV(startPos, Vector2_New(std_cell * 3 + 10, panel->eleCount * std_cell * 3 + 10), BLACK);
+        DrawRectangleV(Vector2_New(startPos.x - 1, startPos.y - 1),
+                       Vector2_New(std_cell * 3 + 4, panel->eleCount * (panel->gapY + std_cell * 3) + 4), BLACK);
         for (int i = 0; i < panel->eleCount; i++) {
             PN_ManifestEle *ele = &panel->element[i];
             Rectangle eleRect =
-                RectangleNew(startPos.x, startPos.y + (panel->gapY + std_cell) * i, std_cell * 3, std_cell * 3);
+                RectangleNew(startPos.x, startPos.y + (panel->gapY + std_cell * 3) * i, std_cell * 3, std_cell * 3);
             ele->rect = eleRect;
             PN_ManifestEle_Draw(ele);
         }
