@@ -16,12 +16,24 @@ int main() {
     SetTargetFPS(60);
     ctx_Inti(ctx);
     CtxUIInit(ctx->ctx_UI);
+    Rectangle rect;
+    rect.height = 100;
+    rect.width = 100;
+    rect.y = 100;
+    rect.x = 100;
+
     while (!WindowShouldClose()) {
         float dt = GetFrameTime();
         BeginDrawing();
         ClearBackground(RAYWHITE);
-        
-        if (IsKeyPressed(KEY_A)) {
+        DrawRectangleRec(rect, GREEN);
+        bool isClick = IsMouseButtonPressed(MOUSE_BUTTON_LEFT);
+        Vector2 mouse = GetMousePosition();
+        bool isInside = IsRectInsideMouseRec(rect, mouse);
+        Plog("%d", isClick);
+
+        if (isClick && isInside) {
+            PlogNoArg("a\r\n");
             D_UI_Toggle(ctx);
         }
 

@@ -28,6 +28,7 @@ void Template_free(Template *tpl) {
     free(tpl);
 }
 TM_Tower *Template_GetTower(Template *tpl, int typeID) {
+
     for (int i = 0; i < tpl->toeweLength; i++) {
         if (tpl->towers[i].typeID == typeID) {
             return &tpl->towers[i];
@@ -36,5 +37,6 @@ TM_Tower *Template_GetTower(Template *tpl, int typeID) {
     Plog("No TypeID:%d", typeID);
     return NULL;
 }
+
 
 #endif

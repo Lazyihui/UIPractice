@@ -22,7 +22,7 @@ void D_UI_Close(Ctx *ctx) {
 }
 
 void D_UI_Toggle(Ctx *ctx) {
-    
+
     if (App_UI_PanelTower_IsOpen(ctx->ctx_UI)) {
         D_UI_Close(ctx);
     } else {

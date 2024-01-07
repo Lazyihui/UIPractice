@@ -7,13 +7,15 @@
 #include "PN_ManifestEle.h"
 #include "Common.h"
 #include "TM_Tower.h"
+#include "E_Input.h"
 
 typedef struct Ctx {
     CtxUI *ctx_UI;
 
     Template *tpl;
 
-    
+    //
+    E_Input *input;
 } Ctx;
 
 void ctx_Inti(Ctx *ctx) {
@@ -24,6 +26,10 @@ void ctx_Inti(Ctx *ctx) {
 
     CtxUI *ctx_UI = (CtxUI *)calloc(1, sizeof(CtxUI));
     ctx->ctx_UI = ctx_UI;
+
+    E_Input *input = (E_Input *)calloc(1, sizeof(E_Input));
+    E_Input_Process(input);
+    ctx->input=input;
 }
 
 void ctxfree(Ctx *ctx) {
