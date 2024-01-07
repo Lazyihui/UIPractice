@@ -6,6 +6,7 @@
 #include "App_UI.h"
 #include "TM_Tower.h"
 #include "Template.h"
+#include "D_UI.h"
 static Ctx *ctx;
 
 int main() {
@@ -19,23 +20,11 @@ int main() {
         float dt = GetFrameTime();
         BeginDrawing();
         ClearBackground(RAYWHITE);
+        
         if (IsKeyPressed(KEY_A)) {
-
-
-            App_UI_PanelTower_Open(ctx->ctx_UI, Vector2_New(400, 300));
-            
-            int manifest[3] = {1, 2, 3};
-            
-            for (int i = 0; i < 3; i++) {
-                int typeID = manifest[i];
-                TM_Tower *towerTM = Template_GetTower(ctx->tpl, typeID);
-                App_UI_PanelTower_Add(ctx->ctx_UI, towerTM->typeID, towerTM->iconColor);
-            }
-            if (IsKeyPressed(KEY_B)) {
-                PlogNoArg("B");
-                App_UI_PanelTower_Close(ctx->ctx_UI);
-            }
+            D_UI_Toggle(ctx);
         }
+
         App_UI_PanelTower_Draw(ctx->ctx_UI);
         DrawCircle(0, 0, 100, RED);
         EndDrawing();

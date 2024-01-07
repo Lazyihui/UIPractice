@@ -14,7 +14,6 @@ typedef struct PN_Manifest {
 
 void PN_Manifest_Ctor(PN_Manifest *panel) {
     assert(panel != NULL);
-    PlogNoArg("a");
     panel->gapY = std_cell;
 }
 

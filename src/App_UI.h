@@ -13,7 +13,6 @@ void CtxUIInit(CtxUI *ctxUI) {
 
 void App_UI_PanelTower_Open(CtxUI *ctxUI, Vector2 startPos) {
     assert(ctxUI != NULL);
-    PlogNoArg("start\r\n");
 
     PN_Manifest *panel = ctxUI->pn_towerMani;
     if (panel == NULL) {
@@ -24,13 +23,20 @@ void App_UI_PanelTower_Open(CtxUI *ctxUI, Vector2 startPos) {
     PN_Manifest_Init(ctxUI->pn_towerMani, startPos);
 }
 
+bool App_UI_PanelTower_IsOpen(CtxUI *ctxUI) {
+    PN_Manifest *panel = ctxUI->pn_towerMani;
+
+    if (panel == NULL) {
+        return false;
+    }
+    return panel->isOpen;
+}
+
 void App_UI_PanelTower_Close(CtxUI *ctxUI) {
-    
+
     PN_Manifest_Close(ctxUI->pn_towerMani);
 }
 
-void App_UI_PanelTower_Toggle() {
-}
 
 void App_UI_PanelTower_Draw(CtxUI *ctxUI) {
     assert(ctxUI != NULL);
