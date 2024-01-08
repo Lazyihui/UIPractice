@@ -8,6 +8,8 @@
 #include "Common.h"
 #include "TM_Tower.h"
 #include "E_Input.h"
+#include "RP_Cell.h"
+#include "S_ID.h"
 
 typedef struct Ctx {
     CtxUI *ctx_UI;
@@ -16,6 +18,12 @@ typedef struct Ctx {
 
     //
     E_Input *input;
+
+    //
+    RP_Cell *rp_cell;
+
+    S_ID *s_id;
+
 } Ctx;
 
 void ctx_Inti(Ctx *ctx) {
@@ -29,7 +37,16 @@ void ctx_Inti(Ctx *ctx) {
 
     E_Input *input = (E_Input *)calloc(1, sizeof(E_Input));
     E_Input_Process(input);
-    ctx->input=input;
+    ctx->input = input;
+
+    // RP cell
+    RP_Cell *rp_cell = (RP_Cell *)calloc(1, sizeof(RP_Cell));
+    RP_Cell_Init(rp_cell);
+    ctx->rp_cell = rp_cell;
+
+    S_ID *s_id = (S_ID *)calloc(1, sizeof(S_ID));
+    S_ID_Init(s_id);
+    ctx->s_id = s_id;
 }
 
 void ctxfree(Ctx *ctx) {

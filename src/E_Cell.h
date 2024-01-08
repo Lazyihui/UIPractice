@@ -14,12 +14,15 @@ typedef struct E_Cell {
     /* data */
 } E_Cell;
 
-void E_Cell_Draw(E_Cell *cell){
+void E_Cell_Draw(E_Cell *cell) {
 
-    if(cell->shapeType==SHAPE_TYPE_CIRCLE){
-        DrawCircle(cell->pos.x,cell->pos.y,cell->size.x/2,cell->color);
+    if (cell->shapeType == SHAPE_TYPE_CIRCLE) {
+        DrawCircle(cell->pos.x, cell->pos.y, cell->size.x / 2, cell->color);
+    } else if (cell->shapeType == SHAPE_TYPE_RECT) {
+        DrawRectangleV(cell->pos, cell->size, cell->color);
+    } else {
+        PlogNoArg("ERR");
     }
-    if(cell->shapeType==)
 }
 
 #endif

@@ -7,6 +7,8 @@
 #include "TM_Tower.h"
 #include "Template.h"
 #include "D_UI.h"
+#include "B_Game.h"
+
 static Ctx *ctx;
 
 int main() {
@@ -30,12 +32,12 @@ int main() {
         bool isClick = IsMouseButtonPressed(MOUSE_BUTTON_LEFT);
         Vector2 mouse = GetMousePosition();
         bool isInside = IsRectInsideMouseRec(rect, mouse);
-        Plog("%d", isClick);
 
         if (isClick && isInside) {
-            PlogNoArg("a\r\n");
             D_UI_Toggle(ctx);
         }
+
+        B_Game_Enter(ctx);
 
         App_UI_PanelTower_Draw(ctx->ctx_UI);
         DrawCircle(0, 0, 100, RED);
