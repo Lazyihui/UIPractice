@@ -28,7 +28,10 @@ void RP_Cell_Free(RP_Cell *rp) {
 }
 
 void RP_Cell_Add(RP_Cell *rp, E_Cell *cell) {
+    PlogNoArg("1\r\n");
+    assert(cell!=NULL);
     rp->all[rp->count++] = cell;
+    assert(rp!=NULL);
 }
 
 // 移除

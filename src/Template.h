@@ -63,7 +63,7 @@ TM_Cell *Template_GetCell(Template *tpl, int typeID) {
             return &tpl->cells[i];
         }
     }
-    Plog("No TypeID:%d", typeID);
+    Plog("No TypeID:%d\r\n", typeID);
     return NULL;
 }
 #endif

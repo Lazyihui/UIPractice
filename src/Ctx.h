@@ -29,7 +29,9 @@ typedef struct Ctx {
 void ctx_Inti(Ctx *ctx) {
     // template
     Template *tpl = (Template *)calloc(1, sizeof(Template));
+    assert(tpl);
     Template_Tower_Init(tpl);
+    Template_Cell_Init(tpl);
     ctx->tpl = tpl;
 
     CtxUI *ctx_UI = (CtxUI *)calloc(1, sizeof(CtxUI));

@@ -36,7 +36,7 @@ int main() {
         if (isClick && isInside) {
             D_UI_Toggle(ctx);
         }
-
+        PlogNoArg("s\r\n");
         B_Game_Enter(ctx);
 
         App_UI_PanelTower_Draw(ctx->ctx_UI);
